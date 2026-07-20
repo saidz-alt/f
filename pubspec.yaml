@@ -1,0 +1,29 @@
+name: kabyle_duo
+description: "A bilingual Kabyle (Taqbaylit) <-> French language-learning app for kids, with a Duolingo-style gamification loop."
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: '>=3.19.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+  provider: ^6.1.2
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  intl: ^0.19.0
+  path_provider: ^2.1.4
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  # Image/audio asset directories are declared starting in Stage 2/4,
+  # once those folders actually contain shipped assets. Declaring an
+  # assets path that doesn't exist yet will break `flutter pub get`.
