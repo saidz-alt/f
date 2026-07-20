@@ -3,19 +3,19 @@ import 'package:kabyle_duo/models/curriculum.dart';
 import 'package:kabyle_duo/models/exercise.dart';
 import 'package:kabyle_duo/models/learning_direction.dart';
 
-Lesson _lesson() => Lesson(
+Lesson _lesson() => const Lesson(
       id: 'l',
       titleFr: 'Test',
       titleKab: 'Test',
       icon: 'star',
       xpReward: 10,
-      words: const [
+      words: [
         WordPair(id: 'a', kab: 'itij', fr: 'soleil', emoji: '☀️'),
         WordPair(id: 'b', kab: 'aggur', fr: 'lune', emoji: '🌙'),
         WordPair(id: 'c', kab: 'itri', fr: 'étoile', emoji: '⭐'),
         WordPair(id: 'd', kab: 'aman', fr: 'eau', emoji: '💧'),
       ],
-      phrases: const [
+      phrases: [
         Phrase(
           id: 'p',
           kab: 'd aydi',
