@@ -31,8 +31,8 @@ void main() {
     test('produces exercises for every word plus each phrase', () {
       final ex = ExerciseGenerator(seed: 1)
           .generate(_lesson(), LearningDirection.kabyleToFrench);
-      // 2 exercises per word (4 words) + 1 word-bank per phrase (1) = 9.
-      expect(ex.length, 9);
+      // 2 per word (4 words) + 2 per phrase (word-bank + listen&tap) = 10.
+      expect(ex.length, 10);
       expect(ex.whereType<WordBankExercise>().length, 1);
     });
 

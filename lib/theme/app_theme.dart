@@ -31,6 +31,8 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
+      // Ensures Tifinagh glyphs (e.g. the yaz ⵣ) always have a font to render.
+      fontFamilyFallback: const ['NotoTifinagh'],
       scaffoldBackgroundColor: AppColors.background,
       colorScheme: ColorScheme.fromSeed(
         seedColor: AppColors.primaryGreen,

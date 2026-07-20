@@ -112,9 +112,19 @@ class ExerciseGenerator {
       }
     }
 
-    // 3) One word-bank per phrase in the lesson.
-    for (final phrase in lesson.phrases) {
+    // 3) Phrases power the sentence exercises. Each gets a word-bank plus a
+    //    second modality so phrase-only lessons stay varied: Listen & Tap when
+    //    the target is French (audio available), otherwise a short text-input.
+    final phrases = lesson.phrases;
+    for (var i = 0; i < phrases.length; i++) {
+      final phrase = phrases[i];
       exercises.add(_wordBank(phrase, direction));
+
+      if (targetIsFrench) {
+        exercises.add(_phraseListenTap(phrase, phrases, direction));
+      } else if (phrase.answerTokens(direction).length <= 2) {
+        exercises.add(_phraseTextInput(phrase, direction, answerIsKabyle));
+      }
     }
 
     exercises.shuffle(_rng);
@@ -176,6 +186,34 @@ class ExerciseGenerator {
       promptSentence: phrase.prompt(direction),
       correctTokens: correct,
       bank: bank,
+    );
+  }
+
+  ListenTapExercise _phraseListenTap(
+    Phrase phrase,
+    List<Phrase> pool,
+    LearningDirection direction,
+  ) {
+    final others = pool.where((p) => p.id != phrase.id).toList()..shuffle(_rng);
+    final distractors = others.take(3).toList();
+    final options = [phrase, ...distractors]..shuffle(_rng);
+    return ListenTapExercise(
+      spokenText: phrase.answer(direction),
+      options: options.map((p) => p.answer(direction)).toList(),
+      correctIndex: options.indexOf(phrase),
+    );
+  }
+
+  TextInputExercise _phraseTextInput(
+    Phrase phrase,
+    LearningDirection direction,
+    bool answerIsKabyle,
+  ) {
+    return TextInputExercise(
+      promptWord: phrase.prompt(direction),
+      promptEmoji: '💬',
+      expected: phrase.answer(direction),
+      answerIsKabyle: answerIsKabyle,
     );
   }
 

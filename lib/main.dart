@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'models/curriculum.dart';
 import 'screens/main_navigation.dart';
+import 'screens/onboarding_screen.dart';
 import 'services/audio_service.dart';
 import 'services/curriculum_service.dart';
 import 'services/game_state_provider.dart';
@@ -24,13 +25,13 @@ Future<void> main() async {
   final audio = AudioService();
   unawaited(audio.init());
 
-  runApp(KabyleDuoApp(curriculum: curriculum, audio: audio));
+  runApp(KabylingoApp(curriculum: curriculum, audio: audio));
 }
 
-class KabyleDuoApp extends StatelessWidget {
+class KabylingoApp extends StatelessWidget {
   final Curriculum curriculum;
   final AudioService audio;
-  const KabyleDuoApp({super.key, required this.curriculum, required this.audio});
+  const KabylingoApp({super.key, required this.curriculum, required this.audio});
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +47,7 @@ class KabyleDuoApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'KabyleDuo',
+        title: 'Kabylingo',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         home: const AppLoader(),
@@ -72,6 +73,10 @@ class AppLoader extends StatelessWidget {
         body: Center(child: CircularProgressIndicator()),
       );
     }
+    // First run (or until a language is picked) shows the onboarding chooser.
+    final onboarded =
+        context.select<GameStateProvider, bool>((g) => g.hasOnboarded);
+    if (!onboarded) return const OnboardingScreen();
     return const MainNavigation();
   }
 }

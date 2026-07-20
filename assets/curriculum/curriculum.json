@@ -1,167 +1,572 @@
 {
-  "version": 1,
-  "_note": "PROVISIONAL CONTENT. All Kabyle (Taqbaylit) strings below are draft and MUST be reviewed by a fluent speaker before public release. The app engine, schema, and exercise generation are final; only these words/phrases are subject to linguistic validation. Orthography: standard Latin-based Berber (Kabyle). Direction is handled by the engine — each entry stores both languages once.",
+  "version": 2,
+  "_note": "Content built from the Tatoeba French-Kabyle corpus (KabyleAI/KabTatoebaCorpus, Tatoeba.org open data, CC-BY 2.0). Every Kabyle string is a real human translation from Tatoeba (Greek γ/ε normalized to Latin ɣ/ɛ); emoji are added by Kabylingo.",
   "units": [
     {
-      "id": "u1",
+      "id": "u_greeting",
       "title_fr": "Salutations",
       "title_kab": "Azul",
       "theme": "greeting",
       "color": "#58CC02",
       "lessons": [
         {
-          "id": "u1_l1",
-          "title_fr": "Bonjour",
+          "id": "u_greeting_l1",
+          "title_fr": "Salutations",
           "title_kab": "Azul",
-          "icon": "wave",
+          "icon": "greeting",
           "xp": 10,
           "words": [
-            {"id": "w_hello", "kab": "azul", "fr": "bonjour", "tifinagh": "ⴰⵣⵓⵍ", "emoji": "👋"},
-            {"id": "w_welcome", "kab": "ansuf", "fr": "bienvenue", "emoji": "🤗"},
-            {"id": "w_thanks", "kab": "tanemmirt", "fr": "merci", "emoji": "🙏"},
-            {"id": "w_yes", "kab": "ih", "fr": "oui", "emoji": "✅"},
-            {"id": "w_no", "kab": "uhu", "fr": "non", "emoji": "❌"},
-            {"id": "w_seeyou", "kab": "ar tufat", "fr": "à demain", "emoji": "🌅"}
-          ],
-          "phrases": [
-            {"id": "p_thanks_alot", "kab": "tanemmirt aṭas", "fr": "merci beaucoup", "tokens_kab": ["tanemmirt", "aṭas"], "tokens_fr": ["merci", "beaucoup"]}
-          ]
-        },
-        {
-          "id": "u1_l2",
-          "title_fr": "La famille",
-          "title_kab": "Tawacult",
-          "icon": "family",
-          "xp": 10,
-          "words": [
-            {"id": "w_dad", "kab": "baba", "fr": "papa", "emoji": "👨"},
-            {"id": "w_mom", "kab": "yemma", "fr": "maman", "emoji": "👩"},
-            {"id": "w_brother", "kab": "gma", "fr": "mon frère", "emoji": "👦"},
-            {"id": "w_sister", "kab": "weltma", "fr": "ma sœur", "emoji": "👧"},
-            {"id": "w_grandpa", "kab": "jeddi", "fr": "grand-père", "emoji": "👴"},
-            {"id": "w_grandma", "kab": "setti", "fr": "grand-mère", "emoji": "👵"}
+            {
+              "kab": "Azul",
+              "fr": "bonjour",
+              "emoji": "👋",
+              "id": "w_greet_0"
+            },
+            {
+              "kab": "Tanemmirt",
+              "fr": "merci",
+              "emoji": "🙏",
+              "id": "w_greet_1"
+            },
+            {
+              "kab": "Anɛam",
+              "fr": "oui",
+              "emoji": "✅",
+              "id": "w_greet_2"
+            },
+            {
+              "kab": "Uhu",
+              "fr": "non",
+              "emoji": "❌",
+              "id": "w_greet_3"
+            },
+            {
+              "kab": "Timensiwin",
+              "fr": "bonsoir",
+              "emoji": "🌆",
+              "id": "w_greet_4"
+            },
+            {
+              "kab": "Ahat",
+              "fr": "peut-être",
+              "emoji": "🤔",
+              "id": "w_greet_5"
+            }
           ],
           "phrases": []
         }
       ]
     },
     {
-      "id": "u2",
-      "title_fr": "Nombres et couleurs",
-      "title_kab": "Amḍan d yiniten",
-      "theme": "jewelry",
+      "id": "u_words0",
+      "title_fr": "Premiers mots",
+      "title_kab": "Imeslayen imezwura",
+      "theme": "olive",
+      "color": "#1CB0F6",
+      "lessons": [
+        {
+          "id": "u_words0_l1",
+          "title_fr": "Premiers mots",
+          "title_kab": "Imeslayen imezwura",
+          "icon": "star",
+          "xp": 10,
+          "words": [
+            {
+              "kab": "Amcic",
+              "fr": "chat",
+              "emoji": "🐈",
+              "id": "w_noun0_0"
+            },
+            {
+              "kab": "Igenni",
+              "fr": "ciel",
+              "emoji": "🌌",
+              "id": "w_noun0_1"
+            },
+            {
+              "kab": "Aɣrum",
+              "fr": "pain",
+              "emoji": "🍞",
+              "id": "w_noun0_2"
+            },
+            {
+              "kab": "taččinatt",
+              "fr": "orange",
+              "emoji": "🍊",
+              "id": "w_noun0_3"
+            },
+            {
+              "kab": "tamellalt",
+              "fr": "œuf",
+              "emoji": "🥚",
+              "id": "w_noun0_4"
+            },
+            {
+              "kab": "taqcict",
+              "fr": "fille",
+              "emoji": "👧",
+              "id": "w_noun0_5"
+            }
+          ],
+          "phrases": []
+        }
+      ]
+    },
+    {
+      "id": "u_words1",
+      "title_fr": "Mots utiles",
+      "title_kab": "Imeslayen iɣawasen",
+      "theme": "olive",
       "color": "#CE82FF",
       "lessons": [
         {
-          "id": "u2_l1",
-          "title_fr": "Les nombres",
-          "title_kab": "Amḍan",
-          "icon": "numbers",
+          "id": "u_words1_l1",
+          "title_fr": "Mots utiles",
+          "title_kab": "Imeslayen iɣawasen",
+          "icon": "star",
           "xp": 10,
           "words": [
-            {"id": "w_one", "kab": "yiwen", "fr": "un", "emoji": "1️⃣"},
-            {"id": "w_two", "kab": "sin", "fr": "deux", "emoji": "2️⃣"},
-            {"id": "w_three", "kab": "kraḍ", "fr": "trois", "emoji": "3️⃣"},
-            {"id": "w_four", "kab": "kkuẓ", "fr": "quatre", "emoji": "4️⃣"},
-            {"id": "w_five", "kab": "semmus", "fr": "cinq", "emoji": "5️⃣"}
-          ],
-          "phrases": []
-        },
-        {
-          "id": "u2_l2",
-          "title_fr": "Les couleurs",
-          "title_kab": "Initen",
-          "icon": "colors",
-          "xp": 10,
-          "words": [
-            {"id": "w_green", "kab": "azegzaw", "fr": "vert", "emoji": "🟢"},
-            {"id": "w_red", "kab": "azeggaɣ", "fr": "rouge", "emoji": "🔴"},
-            {"id": "w_yellow", "kab": "awraɣ", "fr": "jaune", "emoji": "🟡"},
-            {"id": "w_black", "kab": "aberkan", "fr": "noir", "emoji": "⚫"},
-            {"id": "w_white", "kab": "amellal", "fr": "blanc", "emoji": "⚪"}
+            {
+              "kab": "argaz",
+              "fr": "homme",
+              "emoji": "👨",
+              "id": "w_noun1_0"
+            },
+            {
+              "kab": "axxam",
+              "fr": "maison",
+              "emoji": "🏠",
+              "id": "w_noun1_1"
+            },
+            {
+              "kab": "lakul",
+              "fr": "école",
+              "emoji": "🏫",
+              "id": "w_noun1_2"
+            },
+            {
+              "kab": "ṭṭaq",
+              "fr": "fenêtre",
+              "emoji": "🪟",
+              "id": "w_noun1_3"
+            },
+            {
+              "kab": "amahil",
+              "fr": "travail",
+              "emoji": "🛠️",
+              "id": "w_noun1_4"
+            },
+            {
+              "kab": "abrid",
+              "fr": "chemin",
+              "emoji": "🥾",
+              "id": "w_noun1_5"
+            }
           ],
           "phrases": []
         }
       ]
     },
     {
-      "id": "u3",
-      "title_fr": "Nature et animaux",
-      "title_kab": "Agama d lewḥuc",
-      "theme": "olive",
-      "color": "#58A700",
+      "id": "u_polite",
+      "title_fr": "Politesse",
+      "title_kab": "Leqder",
+      "theme": "greeting",
+      "color": "#FFC800",
       "lessons": [
         {
-          "id": "u3_l1",
-          "title_fr": "La nature",
-          "title_kab": "Agama",
-          "icon": "nature",
-          "xp": 10,
-          "words": [
-            {"id": "w_sun", "kab": "itij", "fr": "soleil", "tifinagh": "ⵉⵜⵉⵊ", "emoji": "☀️"},
-            {"id": "w_moon", "kab": "aggur", "fr": "lune", "emoji": "🌙"},
-            {"id": "w_star", "kab": "itri", "fr": "étoile", "emoji": "⭐"},
-            {"id": "w_mountain", "kab": "adrar", "fr": "montagne", "tifinagh": "ⴰⴷⵔⴰⵔ", "emoji": "⛰️"},
-            {"id": "w_water", "kab": "aman", "fr": "eau", "tifinagh": "ⴰⵎⴰⵏ", "emoji": "💧"},
-            {"id": "w_sky", "kab": "igenni", "fr": "ciel", "emoji": "🌌"}
-          ],
-          "phrases": []
-        },
-        {
-          "id": "u3_l2",
-          "title_fr": "Les animaux",
-          "title_kab": "Lewḥuc",
-          "icon": "animals",
-          "xp": 10,
-          "words": [
-            {"id": "w_dog", "kab": "aydi", "fr": "chien", "tifinagh": "ⴰⵢⴷⵉ", "emoji": "🐕"},
-            {"id": "w_cat", "kab": "amcic", "fr": "chat", "emoji": "🐈"},
-            {"id": "w_ox", "kab": "afunas", "fr": "bœuf", "emoji": "🐂"},
-            {"id": "w_goat", "kab": "taɣaṭ", "fr": "chèvre", "emoji": "🐐"},
-            {"id": "w_bird", "kab": "afrux", "fr": "oiseau", "emoji": "🐦"}
-          ],
+          "id": "u_polite_l1",
+          "title_fr": "Politesse",
+          "title_kab": "Leqder",
+          "icon": "wave",
+          "xp": 15,
+          "words": [],
           "phrases": [
-            {"id": "p_a_dog", "kab": "d aydi", "fr": "c'est un chien", "tokens_kab": ["d", "aydi"], "tokens_fr": ["c'est", "un", "chien"]}
+            {
+              "id": "u_polite_p0",
+              "kab": "Tanemmirt s tussda!",
+              "fr": "Merci beaucoup!",
+              "tokens_kab": [
+                "Tanemmirt",
+                "s",
+                "tussda"
+              ],
+              "tokens_fr": [
+                "Merci",
+                "beaucoup"
+              ]
+            },
+            {
+              "id": "u_polite_p1",
+              "kab": "Ar tufat!",
+              "fr": "Au revoir!",
+              "tokens_kab": [
+                "Ar",
+                "tufat"
+              ],
+              "tokens_fr": [
+                "Au",
+                "revoir"
+              ]
+            },
+            {
+              "id": "u_polite_p2",
+              "kab": "Ar azekka.",
+              "fr": "À demain.",
+              "tokens_kab": [
+                "Ar",
+                "azekka"
+              ],
+              "tokens_fr": [
+                "À",
+                "demain"
+              ]
+            },
+            {
+              "id": "u_polite_p3",
+              "kab": "Iḍ ameggaz.",
+              "fr": "Bonne nuit.",
+              "tokens_kab": [
+                "Iḍ",
+                "ameggaz"
+              ],
+              "tokens_fr": [
+                "Bonne",
+                "nuit"
+              ]
+            },
+            {
+              "id": "u_polite_p4",
+              "kab": "Afud igerrzen.",
+              "fr": "Bonne chance!",
+              "tokens_kab": [
+                "Afud",
+                "igerrzen"
+              ],
+              "tokens_fr": [
+                "Bonne",
+                "chance"
+              ]
+            },
+            {
+              "id": "u_polite_p5",
+              "kab": "Ulac aɣilif.",
+              "fr": "De rien.",
+              "tokens_kab": [
+                "Ulac",
+                "aɣilif"
+              ],
+              "tokens_fr": [
+                "De",
+                "rien"
+              ]
+            },
+            {
+              "id": "u_polite_p6",
+              "kab": "Suref-iyi.",
+              "fr": "Excuse-moi.",
+              "tokens_kab": [
+                "Suref-iyi"
+              ],
+              "tokens_fr": [
+                "Excuse-moi"
+              ]
+            },
+            {
+              "id": "u_polite_p7",
+              "kab": "Gedha.",
+              "fr": "Félicitations.",
+              "tokens_kab": [
+                "Gedha"
+              ],
+              "tokens_fr": [
+                "Félicitations"
+              ]
+            }
           ]
         }
       ]
     },
     {
-      "id": "u4",
-      "title_fr": "Nourriture et corps",
-      "title_kab": "Učči d lǧețța",
-      "theme": "tea",
+      "id": "u_questions",
+      "title_fr": "Les questions",
+      "title_kab": "Isteqsiyen",
+      "theme": "greeting",
+      "color": "#1CB0F6",
+      "lessons": [
+        {
+          "id": "u_questions_l1",
+          "title_fr": "Les questions",
+          "title_kab": "Isteqsiyen",
+          "icon": "wave",
+          "xp": 15,
+          "words": [],
+          "phrases": [
+            {
+              "id": "u_questions_p0",
+              "kab": "Yelha.",
+              "fr": "Ça va.",
+              "tokens_kab": [
+                "Yelha"
+              ],
+              "tokens_fr": [
+                "Ça",
+                "va"
+              ]
+            },
+            {
+              "id": "u_questions_p1",
+              "kab": "Amek i tettiliḍ?",
+              "fr": "Comment vas-tu?",
+              "tokens_kab": [
+                "Amek",
+                "i",
+                "tettiliḍ"
+              ],
+              "tokens_fr": [
+                "Comment",
+                "vas-tu"
+              ]
+            },
+            {
+              "id": "u_questions_p2",
+              "kab": "Anda telliḍ?",
+              "fr": "Où es-tu?",
+              "tokens_kab": [
+                "Anda",
+                "telliḍ"
+              ],
+              "tokens_fr": [
+                "Où",
+                "es-tu"
+              ]
+            },
+            {
+              "id": "u_questions_p3",
+              "kab": "Wi k-ilan?",
+              "fr": "Qui es-tu?",
+              "tokens_kab": [
+                "Wi",
+                "k-ilan"
+              ],
+              "tokens_fr": [
+                "Qui",
+                "es-tu"
+              ]
+            },
+            {
+              "id": "u_questions_p4",
+              "kab": "Tettmeslayeḍ tafransist?",
+              "fr": "Tu parles français?",
+              "tokens_kab": [
+                "Tettmeslayeḍ",
+                "tafransist"
+              ],
+              "tokens_fr": [
+                "Tu",
+                "parles",
+                "français"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u_daily",
+      "title_fr": "Le quotidien",
+      "title_kab": "Amur n wass",
+      "theme": "greeting",
       "color": "#FF9600",
       "lessons": [
         {
-          "id": "u4_l1",
-          "title_fr": "La nourriture",
-          "title_kab": "Učči",
-          "icon": "food",
-          "xp": 10,
-          "words": [
-            {"id": "w_bread", "kab": "aɣrum", "fr": "pain", "emoji": "🍞"},
-            {"id": "w_water2", "kab": "aman", "fr": "eau", "emoji": "💧"},
-            {"id": "w_olives", "kab": "azemmur", "fr": "olives", "emoji": "🫒"},
-            {"id": "w_honey", "kab": "tament", "fr": "miel", "emoji": "🍯"},
-            {"id": "w_meat", "kab": "aksum", "fr": "viande", "emoji": "🥩"}
-          ],
-          "phrases": []
-        },
-        {
-          "id": "u4_l2",
-          "title_fr": "Le corps",
-          "title_kab": "Lǧețța",
-          "icon": "body",
-          "xp": 10,
-          "words": [
-            {"id": "w_head", "kab": "aqerru", "fr": "tête", "emoji": "🧑"},
-            {"id": "w_eyes", "kab": "allen", "fr": "yeux", "emoji": "👀"},
-            {"id": "w_hand", "kab": "afus", "fr": "main", "emoji": "✋"},
-            {"id": "w_foot", "kab": "aḍar", "fr": "pied", "emoji": "🦶"},
-            {"id": "w_heart", "kab": "ul", "fr": "cœur", "emoji": "❤️"}
-          ],
-          "phrases": []
+          "id": "u_daily_l1",
+          "title_fr": "Le quotidien",
+          "title_kab": "Amur n wass",
+          "icon": "family",
+          "xp": 15,
+          "words": [],
+          "phrases": [
+            {
+              "id": "u_daily_p0",
+              "kab": "Lluẓeɣ",
+              "fr": "J'ai faim.",
+              "tokens_kab": [
+                "Lluẓeɣ"
+              ],
+              "tokens_fr": [
+                "J'ai",
+                "faim"
+              ]
+            },
+            {
+              "id": "u_daily_p1",
+              "kab": "Ffudeɣ.",
+              "fr": "J'ai soif.",
+              "tokens_kab": [
+                "Ffudeɣ"
+              ],
+              "tokens_fr": [
+                "J'ai",
+                "soif"
+              ]
+            },
+            {
+              "id": "u_daily_p2",
+              "kab": "Ɛyiɣ.",
+              "fr": "Je suis fatigué.",
+              "tokens_kab": [
+                "Ɛyiɣ"
+              ],
+              "tokens_fr": [
+                "Je",
+                "suis",
+                "fatigué"
+              ]
+            },
+            {
+              "id": "u_daily_p3",
+              "kab": "Iɛǧeb-iyi lḥal.",
+              "fr": "Je suis content.",
+              "tokens_kab": [
+                "Iɛǧeb-iyi",
+                "lḥal"
+              ],
+              "tokens_fr": [
+                "Je",
+                "suis",
+                "content"
+              ]
+            },
+            {
+              "id": "u_daily_p4",
+              "kab": "Yenɣa-yi usemmiḍ.",
+              "fr": "J'ai froid.",
+              "tokens_kab": [
+                "Yenɣa-yi",
+                "usemmiḍ"
+              ],
+              "tokens_fr": [
+                "J'ai",
+                "froid"
+              ]
+            },
+            {
+              "id": "u_daily_p5",
+              "kab": "Semmeḍ lḥal.",
+              "fr": "Il fait froid.",
+              "tokens_kab": [
+                "Semmeḍ",
+                "lḥal"
+              ],
+              "tokens_fr": [
+                "Il",
+                "fait",
+                "froid"
+              ]
+            },
+            {
+              "id": "u_daily_p6",
+              "kab": "Tekkat lehwa.",
+              "fr": "Il pleut.",
+              "tokens_kab": [
+                "Tekkat",
+                "lehwa"
+              ],
+              "tokens_fr": [
+                "Il",
+                "pleut"
+              ]
+            },
+            {
+              "id": "u_daily_p7",
+              "kab": "Ḥemmleɣ-k.",
+              "fr": "Je t'aime.",
+              "tokens_kab": [
+                "Ḥemmleɣ-k"
+              ],
+              "tokens_fr": [
+                "Je",
+                "t'aime"
+              ]
+            },
+            {
+              "id": "u_daily_p8",
+              "kab": "Dayen?",
+              "fr": "C'est bon?",
+              "tokens_kab": [
+                "Dayen"
+              ],
+              "tokens_fr": [
+                "C'est",
+                "bon"
+              ]
+            },
+            {
+              "id": "u_daily_p9",
+              "kab": "Ṛuḥ-d ar da.",
+              "fr": "Viens ici.",
+              "tokens_kab": [
+                "Ṛuḥ-d",
+                "ar",
+                "da"
+              ],
+              "tokens_fr": [
+                "Viens",
+                "ici"
+              ]
+            },
+            {
+              "id": "u_daily_p10",
+              "kab": "Wali!",
+              "fr": "Regarde!",
+              "tokens_kab": [
+                "Wali"
+              ],
+              "tokens_fr": [
+                "Regarde"
+              ]
+            },
+            {
+              "id": "u_daily_p11",
+              "kab": "Qqim fell-ak!",
+              "fr": "Assieds-toi!",
+              "tokens_kab": [
+                "Qqim",
+                "fell-ak"
+              ],
+              "tokens_fr": [
+                "Assieds-toi"
+              ]
+            },
+            {
+              "id": "u_daily_p12",
+              "kab": "Ur zriɣ ara.",
+              "fr": "Je ne sais pas.",
+              "tokens_kab": [
+                "Ur",
+                "zriɣ",
+                "ara"
+              ],
+              "tokens_fr": [
+                "Je",
+                "ne",
+                "sais",
+                "pas"
+              ]
+            },
+            {
+              "id": "u_daily_p13",
+              "kab": "Ɛawen-iyi!",
+              "fr": "Aide-moi!",
+              "tokens_kab": [
+                "Ɛawen-iyi"
+              ],
+              "tokens_fr": [
+                "Aide-moi"
+              ]
+            }
+          ]
         }
       ]
     }

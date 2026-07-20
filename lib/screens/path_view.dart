@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../models/curriculum.dart';
 import '../models/learning_direction.dart';
 import '../services/game_state_provider.dart';
@@ -60,6 +61,7 @@ class PathView extends StatelessWidget {
                 color: unit.color,
                 status: status,
                 isCurrent: isCurrent,
+                startLabel: context.t.startBubble,
                 onTap: () => _showLessonIntro(context, lesson, unit, direction),
               ),
             ),
@@ -133,7 +135,7 @@ class _UnitBanner extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${unit.lessons.length} lessons',
+                  context.t.lessonsCount(unit.lessons.length),
                   style: TextStyle(color: Colors.white.withValues(alpha: 0.85)),
                 ),
               ],
@@ -194,7 +196,8 @@ class LessonIntroSheet extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 16),
-            Text('You will learn:', style: Theme.of(context).textTheme.titleMedium),
+            Text(context.t.youWillLearn,
+                style: Theme.of(context).textTheme.titleMedium),
             const SizedBox(height: 8),
             Wrap(
               spacing: 8,
@@ -214,7 +217,7 @@ class LessonIntroSheet extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: onStart,
                 style: ElevatedButton.styleFrom(backgroundColor: unit.color),
-                child: const Text('START LESSON'),
+                child: Text(context.t.startLesson),
               ),
             ),
           ],

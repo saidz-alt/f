@@ -14,7 +14,7 @@
     -->
 
     <application
-        android:label="KabyleDuo"
+        android:label="Kabylingo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"

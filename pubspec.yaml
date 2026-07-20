@@ -32,3 +32,9 @@ flutter:
     - assets/audio/sfx/
     # Native-speaker Kabyle recordings drop into assets/audio/kab/ and are
     # picked up automatically by AudioService; French uses on-device TTS.
+  fonts:
+    # Fallback so the Tifinagh yaz (ⵣ) and any Tifinagh text render on every
+    # platform (Android ships it, but the web/desktop engines may not).
+    - family: NotoTifinagh
+      fonts:
+        - asset: assets/fonts/NotoSansTifinagh-Regular.ttf

@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../services/game_state_provider.dart';
 import '../theme/app_theme.dart';
 
 class ProgressScreen extends StatelessWidget {
   const ProgressScreen({super.key});
 
-  static const _weekdayLabels = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
-
   @override
   Widget build(BuildContext context) {
     final state = context.watch<GameStateProvider>();
     final last7 = state.lastNDaysActivity(7);
+    final weekdayLabels = context.t.weekdayInitials;
 
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Text('Your progress', style: Theme.of(context).textTheme.headlineMedium),
+          Text(context.t.yourProgress,
+              style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 20),
           Card(
             elevation: 0,
@@ -33,9 +34,11 @@ class ProgressScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${state.streakCount}-day streak',
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('${state.streakFreezes} streak freeze(s) available'),
+                      Text(context.t.dayStreak(state.streakCount),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18)),
+                      Text(context.t
+                          .streakFreezesAvailable(state.streakFreezes)),
                     ],
                   ),
                 ],
@@ -49,7 +52,7 @@ class ProgressScreen extends StatelessWidget {
               final active = last7[i];
               return Column(
                 children: [
-                  Text(_weekdayLabels[i], style: const TextStyle(fontSize: 12)),
+                  Text(weekdayLabels[i], style: const TextStyle(fontSize: 12)),
                   const SizedBox(height: 6),
                   CircleAvatar(
                     radius: 16,
@@ -78,9 +81,10 @@ class ProgressScreen extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text('${state.xp} total XP',
-                          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
-                      Text('Level ${state.level}'),
+                      Text(context.t.totalXpValue(state.xp),
+                          style: const TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 18)),
+                      Text(context.t.levelN(state.level)),
                     ],
                   ),
                 ],

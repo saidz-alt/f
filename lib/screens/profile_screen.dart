@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../models/learning_direction.dart';
 import '../services/game_state_provider.dart';
 import '../theme/app_theme.dart';
@@ -11,12 +12,14 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final state = context.watch<GameStateProvider>();
+    final t = context.t;
 
     return SafeArea(
       child: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Text('Profile', style: Theme.of(context).textTheme.headlineMedium),
+          Text(t.profileTitle,
+              style: Theme.of(context).textTheme.headlineMedium),
           const SizedBox(height: 20),
           const CircleAvatar(
             radius: 40,
@@ -24,7 +27,9 @@ class ProfileScreen extends StatelessWidget {
             child: Icon(Icons.person, size: 44, color: Colors.white),
           ),
           const SizedBox(height: 24),
-          Text('Learning course', style: Theme.of(context).textTheme.titleLarge),
+          // Interface language — changing it re-localizes the whole app AND
+          // flips what the child is learning (the other language).
+          Text(t.appLanguage, style: Theme.of(context).textTheme.titleLarge),
           const SizedBox(height: 8),
           Card(
             elevation: 0,
@@ -32,30 +37,31 @@ class ProfileScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               side: const BorderSide(color: AppColors.disabledGrey),
             ),
-            child: RadioGroup<LearningDirection>(
-              groupValue: state.direction,
+            child: RadioGroup<UiLang>(
+              groupValue: state.uiLang,
               onChanged: (value) {
-                if (value != null) state.setDirection(value);
+                if (value != null) state.setUiLang(value);
               },
               child: Column(
-                children: LearningDirection.values.map((direction) {
-                  return RadioListTile<LearningDirection>(
-                    value: direction,
+                children: UiLang.values.map((lang) {
+                  return RadioListTile<UiLang>(
+                    value: lang,
                     activeColor: AppColors.primaryGreen,
-                    title: Text(direction.label,
+                    secondary:
+                        Text(lang.flag, style: const TextStyle(fontSize: 26)),
+                    title: Text(lang.nativeName,
                         style: const TextStyle(fontWeight: FontWeight.w600)),
-                    subtitle: Text(
-                        'Learn ${direction.targetLanguage} from ${direction.sourceLanguage}'),
+                    subtitle: Text(t.youSpeakSubtitle(lang)),
                   );
                 }).toList(),
               ),
             ),
           ),
           const SizedBox(height: 24),
-          _StatRow(label: 'Total XP', value: '${state.xp}'),
-          _StatRow(label: 'Level', value: '${state.level}'),
-          _StatRow(label: 'Current streak', value: '${state.streakCount} days'),
-          _StatRow(label: 'Gems', value: '${state.gems}'),
+          _StatRow(label: t.statTotalXp, value: '${state.xp}'),
+          _StatRow(label: t.statLevel, value: '${state.level}'),
+          _StatRow(label: t.statStreak, value: t.daysUnit(state.streakCount)),
+          _StatRow(label: t.statGems, value: '${state.gems}'),
         ],
       ),
     );

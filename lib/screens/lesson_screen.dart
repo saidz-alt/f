@@ -2,6 +2,7 @@ import 'package:confetti/confetti.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../models/curriculum.dart';
 import '../models/exercise.dart';
 import '../models/learning_direction.dart';
@@ -224,25 +225,30 @@ class _LessonScreenState extends State<LessonScreen> {
           color: Colors.white,
           child: ElevatedButton(
             onPressed: _answer == null ? null : _check,
-            child: const Text('CHECK'),
+            child: Text(context.t.check),
           ),
         );
       case _Phase.correct:
         return _FeedbackPanel(
           isCorrect: true,
-          message: _praise(),
+          message: _praise(context),
+          continueLabel: context.t.continue_,
           onContinue: _continue,
         );
       case _Phase.wrong:
         return _FeedbackPanel(
           isCorrect: false,
-          message: 'Correct answer:',
+          message: context.t.correctAnswer,
           correctText: _answer?.correctText,
+          continueLabel: context.t.continue_,
           onContinue: _continue,
         );
       case _Phase.outOfHearts:
         return _OutOfHeartsPanel(
           canRefill: context.select<GameStateProvider, int>((g) => g.gems) >= 350,
+          title: context.t.outOfHearts,
+          refillLabel: context.t.refillForGems(350),
+          quitLabel: context.t.quitLessonButton,
           onRefill: _refillWithGems,
           onQuit: () => Navigator.of(context).pop(),
         );
@@ -251,8 +257,8 @@ class _LessonScreenState extends State<LessonScreen> {
     }
   }
 
-  String _praise() {
-    const options = ['Excellent!', 'Igerrez! 🎉', 'Bravo!', 'Great job!', 'Yelha!'];
+  String _praise(BuildContext context) {
+    final options = context.t.praises;
     return options[_index % options.length];
   }
 
@@ -270,7 +276,7 @@ class _LessonScreenState extends State<LessonScreen> {
                   const Spacer(),
                   const Text('🎉', style: TextStyle(fontSize: 88)),
                   const SizedBox(height: 12),
-                  Text('Lesson complete!',
+                  Text(context.t.lessonComplete,
                       style: Theme.of(context).textTheme.headlineMedium),
                   const SizedBox(height: 24),
                   Row(
@@ -294,7 +300,7 @@ class _LessonScreenState extends State<LessonScreen> {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: const Text('CONTINUE'),
+                      child: Text(context.t.continue_),
                     ),
                   ),
                 ],
@@ -322,19 +328,19 @@ class _LessonScreenState extends State<LessonScreen> {
     showDialog<void>(
       context: context,
       builder: (dialogContext) => AlertDialog(
-        title: const Text('Quit lesson?'),
-        content: const Text("Your progress in this lesson won't be saved."),
+        title: Text(context.t.quitLessonTitle),
+        content: Text(context.t.quitLessonBody),
         actions: [
           TextButton(
             onPressed: () => Navigator.of(dialogContext).pop(),
-            child: const Text('STAY'),
+            child: Text(context.t.stay),
           ),
           TextButton(
             onPressed: () {
               Navigator.of(dialogContext).pop();
               Navigator.of(context).pop();
             },
-            child: const Text('QUIT'),
+            child: Text(context.t.quit),
           ),
         ],
       ),
@@ -362,12 +368,14 @@ class _FeedbackPanel extends StatelessWidget {
   final bool isCorrect;
   final String message;
   final String? correctText;
+  final String continueLabel;
   final VoidCallback onContinue;
 
   const _FeedbackPanel({
     required this.isCorrect,
     required this.message,
     this.correctText,
+    required this.continueLabel,
     required this.onContinue,
   });
 
@@ -404,7 +412,7 @@ class _FeedbackPanel extends StatelessWidget {
             child: ElevatedButton(
               onPressed: onContinue,
               style: ElevatedButton.styleFrom(backgroundColor: base),
-              child: const Text('CONTINUE'),
+              child: Text(continueLabel),
             ),
           ),
         ],
@@ -415,11 +423,17 @@ class _FeedbackPanel extends StatelessWidget {
 
 class _OutOfHeartsPanel extends StatelessWidget {
   final bool canRefill;
+  final String title;
+  final String refillLabel;
+  final String quitLabel;
   final VoidCallback onRefill;
   final VoidCallback onQuit;
 
   const _OutOfHeartsPanel({
     required this.canRefill,
+    required this.title,
+    required this.refillLabel,
+    required this.quitLabel,
     required this.onRefill,
     required this.onQuit,
   });
@@ -431,13 +445,13 @@ class _OutOfHeartsPanel extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const Row(
+          Row(
             children: [
-              Icon(Icons.heart_broken, color: AppColors.heartRed),
-              SizedBox(width: 8),
+              const Icon(Icons.heart_broken, color: AppColors.heartRed),
+              const SizedBox(width: 8),
               Expanded(
-                child: Text('You ran out of hearts!',
-                    style: TextStyle(
+                child: Text(title,
+                    style: const TextStyle(
                         color: AppColors.heartRed,
                         fontWeight: FontWeight.w800,
                         fontSize: 18)),
@@ -453,7 +467,7 @@ class _OutOfHeartsPanel extends StatelessWidget {
                 style:
                     ElevatedButton.styleFrom(backgroundColor: AppColors.gemBlue),
                 icon: const Icon(Icons.diamond),
-                label: const Text('Refill for 350 gems'),
+                label: Text(refillLabel),
               ),
             ),
           const SizedBox(height: 8),
@@ -461,7 +475,7 @@ class _OutOfHeartsPanel extends StatelessWidget {
             width: double.infinity,
             child: OutlinedButton(
               onPressed: onQuit,
-              child: const Text('QUIT LESSON'),
+              child: Text(quitLabel),
             ),
           ),
         ],

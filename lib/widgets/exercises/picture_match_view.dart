@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_text.dart';
 import '../../models/exercise.dart';
 import '../../services/audio_service.dart';
 import '../../theme/app_theme.dart';
@@ -42,7 +43,7 @@ class _PictureMatchViewState extends State<PictureMatchView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Which one is this?',
+        Text(context.t.whichOneIsThis,
             style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 16),
         Row(

@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart' show listEquals;
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_text.dart';
 import '../../models/exercise.dart';
 import '../../theme/app_theme.dart';
 
@@ -65,7 +66,7 @@ class _WordBankViewState extends State<WordBankView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Build the sentence',
+        Text(context.t.buildTheSentence,
             style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 8),
         Container(

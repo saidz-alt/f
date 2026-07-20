@@ -11,6 +11,7 @@ class LessonNode extends StatelessWidget {
   final Color color;
   final LessonStatus status;
   final bool isCurrent;
+  final String startLabel;
   final VoidCallback? onTap;
 
   const LessonNode({
@@ -19,6 +20,7 @@ class LessonNode extends StatelessWidget {
     required this.color,
     required this.status,
     required this.isCurrent,
+    required this.startLabel,
     this.onTap,
   });
 
@@ -42,7 +44,7 @@ class LessonNode extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         if (isCurrent && !locked) ...[
-          _StartBubble(color: color),
+          _StartBubble(color: color, label: startLabel),
           const SizedBox(height: 6),
         ],
         Semantics(
@@ -120,7 +122,8 @@ class LessonNode extends StatelessWidget {
 /// The little "START" call-out that bounces above the current lesson.
 class _StartBubble extends StatelessWidget {
   final Color color;
-  const _StartBubble({required this.color});
+  final String label;
+  const _StartBubble({required this.color, required this.label});
 
   @override
   Widget build(BuildContext context) {
@@ -132,7 +135,7 @@ class _StartBubble extends StatelessWidget {
         border: Border.all(color: color, width: 2),
       ),
       child: Text(
-        'START',
+        label,
         style: TextStyle(
           color: color,
           fontWeight: FontWeight.w800,

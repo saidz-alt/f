@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_text.dart';
 import '../theme/app_theme.dart';
 import 'home_screen.dart';
 import 'profile_screen.dart';
@@ -38,26 +39,29 @@ class _MainNavigationState extends State<MainNavigation> {
         onDestinationSelected: (index) => setState(() => _currentIndex = index),
         backgroundColor: Colors.white,
         indicatorColor: AppColors.primaryGreen.withValues(alpha: 0.15),
-        destinations: const [
+        destinations: [
           NavigationDestination(
-            icon: Icon(Icons.home_outlined),
-            selectedIcon: Icon(Icons.home, color: AppColors.primaryGreen),
-            label: 'Home',
+            icon: const Icon(Icons.home_outlined),
+            selectedIcon: const Icon(Icons.home, color: AppColors.primaryGreen),
+            label: context.t.navHome,
           ),
           NavigationDestination(
-            icon: Icon(Icons.bar_chart_outlined),
-            selectedIcon: Icon(Icons.bar_chart, color: AppColors.primaryGreen),
-            label: 'Progress',
+            icon: const Icon(Icons.bar_chart_outlined),
+            selectedIcon:
+                const Icon(Icons.bar_chart, color: AppColors.primaryGreen),
+            label: context.t.navProgress,
           ),
           NavigationDestination(
-            icon: Icon(Icons.storefront_outlined),
-            selectedIcon: Icon(Icons.storefront, color: AppColors.primaryGreen),
-            label: 'Shop',
+            icon: const Icon(Icons.storefront_outlined),
+            selectedIcon:
+                const Icon(Icons.storefront, color: AppColors.primaryGreen),
+            label: context.t.navShop,
           ),
           NavigationDestination(
-            icon: Icon(Icons.person_outline),
-            selectedIcon: Icon(Icons.person, color: AppColors.primaryGreen),
-            label: 'Profile',
+            icon: const Icon(Icons.person_outline),
+            selectedIcon:
+                const Icon(Icons.person, color: AppColors.primaryGreen),
+            label: context.t.navProfile,
           ),
         ],
       ),

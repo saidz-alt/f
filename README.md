@@ -1,4 +1,4 @@
-# KabyleDuo 🟢
+# Kabylingo 🟢
 
 A Duolingo-style, **offline-first** language-learning game for children, built
 to teach **French to Kabyle (Taqbaylit) kids** and **Kabyle to French-speaking
@@ -20,12 +20,31 @@ emoji pictures, motivational sounds, hearts, XP, streaks, and a gem shop.
 | Android build config | ✅ Complete & production-ready (manifest, gradle, signing, ProGuard) |
 | `.apk` compiled here | ⚠️ Not in this sandbox — the Android SDK / Android Gradle Plugin are hosted on `dl.google.com`, which this environment's network policy blocks. Build it in any normal environment with the one command below. |
 
-> **Kabyle content is provisional.** The engine, schema, and UI are final, but
-> every Kabyle string in `assets/curriculum/curriculum.json` is a **draft that
-> must be validated by a fluent Taqbaylit speaker** before public release. See
-> the `_note` field in that file.
+> **Content provenance.** The learning content in
+> `assets/curriculum/curriculum.json` is built from the **Tatoeba**
+> French–Kabyle corpus (`KabyleAI/KabTatoebaCorpus`, Tatoeba.org open data,
+> CC-BY 2.0) — every Kabyle word/sentence is a real human translation
+> (see `tools/build_curriculum.py`). The **interface** strings in
+> `lib/l10n/app_text.dart` (buttons, menus) are French-authoritative with
+> best-effort Kabyle that a fluent Taqbaylit speaker should review before
+> release.
 
 ---
+
+## Onboarding & fully bilingual interface
+
+On first launch the child taps the language they **speak** — **Français** or
+**Taqbaylit** (ⵣ). That single choice:
+
+- sets the **entire interface language** (every menu, button, and instruction
+  re-localizes), so a Kabyle child sees a Kabyle app and a French child sees a
+  French app; and
+- derives **what they learn** (the other language).
+
+It can be changed anytime from **Profile → Langue / Tutlayt**. Localization
+lives in `lib/l10n/app_text.dart` (`context.t.*`), and the Tifinagh yaz is
+bundled as a fallback font (`assets/fonts/NotoSansTifinagh-Regular.ttf`) so it
+renders on every platform.
 
 ## The 5-stage architecture
 
@@ -109,12 +128,12 @@ flutter pub get
 
 # 2. (Optional) create a release keystore for a Play-Store-signable build.
 #    Skip this and you still get an installable, debug-signed APK.
-keytool -genkey -v -keystore kabyleduo-release.jks \
-  -keyalg RSA -keysize 2048 -validity 10000 -alias kabyleduo
+keytool -genkey -v -keystore kabylingo-release.jks \
+  -keyalg RSA -keysize 2048 -validity 10000 -alias kabylingo
 #    Then create android/key.properties (git-ignored):
-#      storeFile=../kabyleduo-release.jks
+#      storeFile=../kabylingo-release.jks
 #      storePassword=<your password>
-#      keyAlias=kabyleduo
+#      keyAlias=kabylingo
 #      keyPassword=<your password>
 
 # 3. Build the release APK

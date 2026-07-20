@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../models/shop_item.dart';
 import '../services/game_state_provider.dart';
 import '../theme/app_theme.dart';
@@ -21,7 +22,8 @@ class ShopScreen extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text('Shop', style: Theme.of(context).textTheme.headlineMedium),
+                Text(context.t.shopTitle,
+                    style: Theme.of(context).textTheme.headlineMedium),
                 Row(
                   children: [
                     const Icon(Icons.diamond, color: AppColors.gemBlue),
@@ -52,8 +54,9 @@ class ShopScreen extends StatelessWidget {
                       backgroundColor: AppColors.gemBlue.withValues(alpha: 0.15),
                       child: Icon(_iconFor(item.effect), color: AppColors.gemBlue),
                     ),
-                    title: Text(item.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                    subtitle: Text(item.description),
+                    title: Text(_name(context, item.effect),
+                        style: const TextStyle(fontWeight: FontWeight.bold)),
+                    subtitle: Text(_desc(context, item.effect)),
                     trailing: ElevatedButton(
                       onPressed: canAfford ? () => _purchase(context, item) : null,
                       style: ElevatedButton.styleFrom(
@@ -70,6 +73,28 @@ class ShopScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _name(BuildContext context, ShopItemEffect effect) {
+    switch (effect) {
+      case ShopItemEffect.refillHearts:
+        return context.t.heartRefill;
+      case ShopItemEffect.streakFreeze:
+        return context.t.streakFreeze;
+      case ShopItemEffect.doubleXp:
+        return context.t.doubleXp;
+    }
+  }
+
+  String _desc(BuildContext context, ShopItemEffect effect) {
+    switch (effect) {
+      case ShopItemEffect.refillHearts:
+        return context.t.heartRefillDesc;
+      case ShopItemEffect.streakFreeze:
+        return context.t.streakFreezeDesc;
+      case ShopItemEffect.doubleXp:
+        return context.t.doubleXpDesc;
+    }
   }
 
   IconData _iconFor(ShopItemEffect effect) {
@@ -100,7 +125,7 @@ class ShopScreen extends StatelessWidget {
     }
 
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text('${item.name} purchased!')),
+      SnackBar(content: Text(context.t.purchased(_name(context, item.effect)))),
     );
   }
 }

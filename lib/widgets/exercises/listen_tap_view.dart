@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_text.dart';
 import '../../models/exercise.dart';
 import '../../services/audio_service.dart';
 import '../../theme/app_theme.dart';
@@ -54,7 +55,7 @@ class _ListenTapViewState extends State<ListenTapView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Tap what you hear',
+        Text(context.t.tapWhatYouHear,
             style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 20),
         Center(

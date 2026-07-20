@@ -30,7 +30,8 @@ class GameStateProvider extends ChangeNotifier {
   DateTime? _nextHeartRefillAt;
   DateTime? _doubleXpExpiresAt;
   Set<String> _activeDates = <String>{};
-  LearningDirection _direction = LearningDirection.kabyleToFrench;
+  UiLang _uiLang = UiLang.fr;
+  bool _hasOnboarded = false;
 
   bool get isReady => _isReady;
   int get hearts => _hearts;
@@ -40,7 +41,15 @@ class GameStateProvider extends ChangeNotifier {
   int get streakCount => _streakCount;
   int get streakFreezes => _streakFreezes;
   DateTime? get nextHeartRefillAt => _nextHeartRefillAt;
-  LearningDirection get direction => _direction;
+
+  UiLang get uiLang => _uiLang;
+  bool get hasOnboarded => _hasOnboarded;
+
+  /// The learning direction is derived from the interface language: a child
+  /// who speaks Kabyle is learning French, and vice-versa.
+  LearningDirection get direction => _uiLang == UiLang.kab
+      ? LearningDirection.kabyleToFrench
+      : LearningDirection.frenchToKabyle;
 
   bool get hasDoubleXp =>
       _doubleXpExpiresAt != null && DateTime.now().isBefore(_doubleXpExpiresAt!);
@@ -77,11 +86,12 @@ class GameStateProvider extends ChangeNotifier {
     final storedDates = (_box.get('activeDates') as List?)?.cast<String>() ?? <String>[];
     _activeDates = storedDates.toSet();
 
-    final directionName = _box.get('direction') as String?;
-    _direction = LearningDirection.values.firstWhere(
-      (d) => d.name == directionName,
-      orElse: () => LearningDirection.kabyleToFrench,
+    final uiLangName = _box.get('uiLang') as String?;
+    _uiLang = UiLang.values.firstWhere(
+      (l) => l.name == uiLangName,
+      orElse: () => UiLang.fr,
     );
+    _hasOnboarded = (_box.get('hasOnboarded') as bool?) ?? false;
 
     _refillHeartsIfDue();
     _regenTimer = Timer.periodic(const Duration(seconds: 60), (_) => _refillHeartsIfDue());
@@ -227,8 +237,19 @@ class GameStateProvider extends ChangeNotifier {
   // Course direction
   // ---------------------------------------------------------------------
 
-  void setDirection(LearningDirection direction) {
-    _direction = direction;
+  /// Called from the onboarding screen: records the child's language and
+  /// marks onboarding done.
+  void completeOnboarding(UiLang lang) {
+    _uiLang = lang;
+    _hasOnboarded = true;
+    _persist();
+    notifyListeners();
+  }
+
+  /// Change the interface language later (from the Profile screen).
+  void setUiLang(UiLang lang) {
+    if (_uiLang == lang) return;
+    _uiLang = lang;
     _persist();
     notifyListeners();
   }
@@ -247,6 +268,7 @@ class GameStateProvider extends ChangeNotifier {
     _box.put('nextHeartRefillAt', _nextHeartRefillAt?.toIso8601String());
     _box.put('doubleXpExpiresAt', _doubleXpExpiresAt?.toIso8601String());
     _box.put('activeDates', _activeDates.toList());
-    _box.put('direction', _direction.name);
+    _box.put('uiLang', _uiLang.name);
+    _box.put('hasOnboarded', _hasOnboarded);
   }
 }

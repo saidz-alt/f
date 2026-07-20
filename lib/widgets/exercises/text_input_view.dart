@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../l10n/app_text.dart';
 import '../../models/exercise.dart';
 import '../../services/audio_service.dart';
 import '../../theme/app_theme.dart';
@@ -51,7 +52,7 @@ class _TextInputViewState extends State<TextInputView> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Type the translation',
+        Text(context.t.typeTheTranslation,
             style: Theme.of(context).textTheme.titleMedium),
         const SizedBox(height: 20),
         Row(
@@ -74,7 +75,7 @@ class _TextInputViewState extends State<TextInputView> {
           onChanged: _onTextChanged,
           style: const TextStyle(fontSize: 20),
           decoration: InputDecoration(
-            hintText: 'Your answer…',
+            hintText: context.t.yourAnswerHint,
             filled: true,
             fillColor: AppColors.background,
             border: OutlineInputBorder(
@@ -89,9 +90,9 @@ class _TextInputViewState extends State<TextInputView> {
         ),
         if (ex.answerIsKabyle) ...[
           const SizedBox(height: 10),
-          const Text(
-            'Tip: accents and special letters are optional.',
-            style: TextStyle(color: Colors.black45, fontSize: 13),
+          Text(
+            context.t.accentsTip,
+            style: const TextStyle(color: Colors.black45, fontSize: 13),
           ),
         ],
       ],

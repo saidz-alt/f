@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_text.dart';
 import '../models/curriculum.dart';
 import '../services/game_state_provider.dart';
 import '../theme/app_theme.dart';
@@ -33,19 +34,19 @@ class HomeScreen extends StatelessWidget {
                       ? AppColors.disabledGrey
                       : AppColors.streakOrange,
                   value: '${state.streakCount}',
-                  semanticLabel: '${state.streakCount} day streak',
+                  semanticLabel: context.t.streakSemantics(state.streakCount),
                 ),
                 StatBadge(
                   icon: Icons.favorite,
                   color: AppColors.heartRed,
                   value: '${state.hearts}',
-                  semanticLabel: '${state.hearts} hearts remaining',
+                  semanticLabel: context.t.heartsSemantics(state.hearts),
                 ),
                 StatBadge(
                   icon: Icons.diamond,
                   color: AppColors.gemBlue,
                   value: '${state.gems}',
-                  semanticLabel: '${state.gems} gems',
+                  semanticLabel: context.t.gemsSemantics(state.gems),
                 ),
               ],
             ),
