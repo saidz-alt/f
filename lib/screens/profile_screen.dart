@@ -32,19 +32,23 @@ class ProfileScreen extends StatelessWidget {
               borderRadius: BorderRadius.circular(16),
               side: const BorderSide(color: AppColors.disabledGrey),
             ),
-            child: Column(
-              children: LearningDirection.values.map((direction) {
-                return RadioListTile<LearningDirection>(
-                  value: direction,
-                  groupValue: state.direction,
-                  activeColor: AppColors.primaryGreen,
-                  title: Text(direction.label, style: const TextStyle(fontWeight: FontWeight.w600)),
-                  subtitle: Text('Learn ${direction.targetLanguage} from ${direction.sourceLanguage}'),
-                  onChanged: (value) {
-                    if (value != null) state.setDirection(value);
-                  },
-                );
-              }).toList(),
+            child: RadioGroup<LearningDirection>(
+              groupValue: state.direction,
+              onChanged: (value) {
+                if (value != null) state.setDirection(value);
+              },
+              child: Column(
+                children: LearningDirection.values.map((direction) {
+                  return RadioListTile<LearningDirection>(
+                    value: direction,
+                    activeColor: AppColors.primaryGreen,
+                    title: Text(direction.label,
+                        style: const TextStyle(fontWeight: FontWeight.w600)),
+                    subtitle: Text(
+                        'Learn ${direction.targetLanguage} from ${direction.sourceLanguage}'),
+                  );
+                }).toList(),
+              ),
             ),
           ),
           const SizedBox(height: 24),

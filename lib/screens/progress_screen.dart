@@ -22,7 +22,7 @@ class ProgressScreen extends StatelessWidget {
           const SizedBox(height: 20),
           Card(
             elevation: 0,
-            color: AppColors.streakOrange.withOpacity(0.1),
+            color: AppColors.streakOrange.withValues(alpha: 0.1),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Padding(
               padding: const EdgeInsets.all(16),
@@ -67,7 +67,7 @@ class ProgressScreen extends StatelessWidget {
           const SizedBox(height: 24),
           Card(
             elevation: 0,
-            color: AppColors.xpGold.withOpacity(0.12),
+            color: AppColors.xpGold.withValues(alpha: 0.12),
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
             child: Padding(
               padding: const EdgeInsets.all(16),

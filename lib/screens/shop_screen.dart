@@ -49,7 +49,7 @@ class ShopScreen extends StatelessWidget {
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(12),
                     leading: CircleAvatar(
-                      backgroundColor: AppColors.gemBlue.withOpacity(0.15),
+                      backgroundColor: AppColors.gemBlue.withValues(alpha: 0.15),
                       child: Icon(_iconFor(item.effect), color: AppColors.gemBlue),
                     ),
                     title: Text(item.name, style: const TextStyle(fontWeight: FontWeight.bold)),

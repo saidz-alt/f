@@ -1,0 +1,169 @@
+{
+  "version": 1,
+  "_note": "PROVISIONAL CONTENT. All Kabyle (Taqbaylit) strings below are draft and MUST be reviewed by a fluent speaker before public release. The app engine, schema, and exercise generation are final; only these words/phrases are subject to linguistic validation. Orthography: standard Latin-based Berber (Kabyle). Direction is handled by the engine — each entry stores both languages once.",
+  "units": [
+    {
+      "id": "u1",
+      "title_fr": "Salutations",
+      "title_kab": "Azul",
+      "theme": "greeting",
+      "color": "#58CC02",
+      "lessons": [
+        {
+          "id": "u1_l1",
+          "title_fr": "Bonjour",
+          "title_kab": "Azul",
+          "icon": "wave",
+          "xp": 10,
+          "words": [
+            {"id": "w_hello", "kab": "azul", "fr": "bonjour", "tifinagh": "ⴰⵣⵓⵍ", "emoji": "👋"},
+            {"id": "w_welcome", "kab": "ansuf", "fr": "bienvenue", "emoji": "🤗"},
+            {"id": "w_thanks", "kab": "tanemmirt", "fr": "merci", "emoji": "🙏"},
+            {"id": "w_yes", "kab": "ih", "fr": "oui", "emoji": "✅"},
+            {"id": "w_no", "kab": "uhu", "fr": "non", "emoji": "❌"},
+            {"id": "w_seeyou", "kab": "ar tufat", "fr": "à demain", "emoji": "🌅"}
+          ],
+          "phrases": [
+            {"id": "p_thanks_alot", "kab": "tanemmirt aṭas", "fr": "merci beaucoup", "tokens_kab": ["tanemmirt", "aṭas"], "tokens_fr": ["merci", "beaucoup"]}
+          ]
+        },
+        {
+          "id": "u1_l2",
+          "title_fr": "La famille",
+          "title_kab": "Tawacult",
+          "icon": "family",
+          "xp": 10,
+          "words": [
+            {"id": "w_dad", "kab": "baba", "fr": "papa", "emoji": "👨"},
+            {"id": "w_mom", "kab": "yemma", "fr": "maman", "emoji": "👩"},
+            {"id": "w_brother", "kab": "gma", "fr": "mon frère", "emoji": "👦"},
+            {"id": "w_sister", "kab": "weltma", "fr": "ma sœur", "emoji": "👧"},
+            {"id": "w_grandpa", "kab": "jeddi", "fr": "grand-père", "emoji": "👴"},
+            {"id": "w_grandma", "kab": "setti", "fr": "grand-mère", "emoji": "👵"}
+          ],
+          "phrases": []
+        }
+      ]
+    },
+    {
+      "id": "u2",
+      "title_fr": "Nombres et couleurs",
+      "title_kab": "Amḍan d yiniten",
+      "theme": "jewelry",
+      "color": "#CE82FF",
+      "lessons": [
+        {
+          "id": "u2_l1",
+          "title_fr": "Les nombres",
+          "title_kab": "Amḍan",
+          "icon": "numbers",
+          "xp": 10,
+          "words": [
+            {"id": "w_one", "kab": "yiwen", "fr": "un", "emoji": "1️⃣"},
+            {"id": "w_two", "kab": "sin", "fr": "deux", "emoji": "2️⃣"},
+            {"id": "w_three", "kab": "kraḍ", "fr": "trois", "emoji": "3️⃣"},
+            {"id": "w_four", "kab": "kkuẓ", "fr": "quatre", "emoji": "4️⃣"},
+            {"id": "w_five", "kab": "semmus", "fr": "cinq", "emoji": "5️⃣"}
+          ],
+          "phrases": []
+        },
+        {
+          "id": "u2_l2",
+          "title_fr": "Les couleurs",
+          "title_kab": "Initen",
+          "icon": "colors",
+          "xp": 10,
+          "words": [
+            {"id": "w_green", "kab": "azegzaw", "fr": "vert", "emoji": "🟢"},
+            {"id": "w_red", "kab": "azeggaɣ", "fr": "rouge", "emoji": "🔴"},
+            {"id": "w_yellow", "kab": "awraɣ", "fr": "jaune", "emoji": "🟡"},
+            {"id": "w_black", "kab": "aberkan", "fr": "noir", "emoji": "⚫"},
+            {"id": "w_white", "kab": "amellal", "fr": "blanc", "emoji": "⚪"}
+          ],
+          "phrases": []
+        }
+      ]
+    },
+    {
+      "id": "u3",
+      "title_fr": "Nature et animaux",
+      "title_kab": "Agama d lewḥuc",
+      "theme": "olive",
+      "color": "#58A700",
+      "lessons": [
+        {
+          "id": "u3_l1",
+          "title_fr": "La nature",
+          "title_kab": "Agama",
+          "icon": "nature",
+          "xp": 10,
+          "words": [
+            {"id": "w_sun", "kab": "itij", "fr": "soleil", "tifinagh": "ⵉⵜⵉⵊ", "emoji": "☀️"},
+            {"id": "w_moon", "kab": "aggur", "fr": "lune", "emoji": "🌙"},
+            {"id": "w_star", "kab": "itri", "fr": "étoile", "emoji": "⭐"},
+            {"id": "w_mountain", "kab": "adrar", "fr": "montagne", "tifinagh": "ⴰⴷⵔⴰⵔ", "emoji": "⛰️"},
+            {"id": "w_water", "kab": "aman", "fr": "eau", "tifinagh": "ⴰⵎⴰⵏ", "emoji": "💧"},
+            {"id": "w_sky", "kab": "igenni", "fr": "ciel", "emoji": "🌌"}
+          ],
+          "phrases": []
+        },
+        {
+          "id": "u3_l2",
+          "title_fr": "Les animaux",
+          "title_kab": "Lewḥuc",
+          "icon": "animals",
+          "xp": 10,
+          "words": [
+            {"id": "w_dog", "kab": "aydi", "fr": "chien", "tifinagh": "ⴰⵢⴷⵉ", "emoji": "🐕"},
+            {"id": "w_cat", "kab": "amcic", "fr": "chat", "emoji": "🐈"},
+            {"id": "w_ox", "kab": "afunas", "fr": "bœuf", "emoji": "🐂"},
+            {"id": "w_goat", "kab": "taɣaṭ", "fr": "chèvre", "emoji": "🐐"},
+            {"id": "w_bird", "kab": "afrux", "fr": "oiseau", "emoji": "🐦"}
+          ],
+          "phrases": [
+            {"id": "p_a_dog", "kab": "d aydi", "fr": "c'est un chien", "tokens_kab": ["d", "aydi"], "tokens_fr": ["c'est", "un", "chien"]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "u4",
+      "title_fr": "Nourriture et corps",
+      "title_kab": "Učči d lǧețța",
+      "theme": "tea",
+      "color": "#FF9600",
+      "lessons": [
+        {
+          "id": "u4_l1",
+          "title_fr": "La nourriture",
+          "title_kab": "Učči",
+          "icon": "food",
+          "xp": 10,
+          "words": [
+            {"id": "w_bread", "kab": "aɣrum", "fr": "pain", "emoji": "🍞"},
+            {"id": "w_water2", "kab": "aman", "fr": "eau", "emoji": "💧"},
+            {"id": "w_olives", "kab": "azemmur", "fr": "olives", "emoji": "🫒"},
+            {"id": "w_honey", "kab": "tament", "fr": "miel", "emoji": "🍯"},
+            {"id": "w_meat", "kab": "aksum", "fr": "viande", "emoji": "🥩"}
+          ],
+          "phrases": []
+        },
+        {
+          "id": "u4_l2",
+          "title_fr": "Le corps",
+          "title_kab": "Lǧețța",
+          "icon": "body",
+          "xp": 10,
+          "words": [
+            {"id": "w_head", "kab": "aqerru", "fr": "tête", "emoji": "🧑"},
+            {"id": "w_eyes", "kab": "allen", "fr": "yeux", "emoji": "👀"},
+            {"id": "w_hand", "kab": "afus", "fr": "main", "emoji": "✋"},
+            {"id": "w_foot", "kab": "aḍar", "fr": "pied", "emoji": "🦶"},
+            {"id": "w_heart", "kab": "ul", "fr": "cœur", "emoji": "❤️"}
+          ],
+          "phrases": []
+        }
+      ]
+    }
+  ]
+}

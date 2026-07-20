@@ -16,6 +16,9 @@ dependencies:
   hive_flutter: ^1.1.0
   intl: ^0.19.0
   path_provider: ^2.1.4
+  flutter_tts: ^4.2.0
+  audioplayers: ^6.1.0
+  confetti: ^0.8.0
 
 dev_dependencies:
   flutter_test:
@@ -24,6 +27,8 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # Image/audio asset directories are declared starting in Stage 2/4,
-  # once those folders actually contain shipped assets. Declaring an
-  # assets path that doesn't exist yet will break `flutter pub get`.
+  assets:
+    - assets/curriculum/curriculum.json
+    - assets/audio/sfx/
+    # Native-speaker Kabyle recordings drop into assets/audio/kab/ and are
+    # picked up automatically by AudioService; French uses on-device TTS.
