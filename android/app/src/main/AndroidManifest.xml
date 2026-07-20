@@ -1,8 +1,25 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+      KID-SAFETY / COPPA POSTURE
+      ==========================
+      This release manifest declares NO permissions on purpose:
+        * No INTERNET           -> the app literally cannot send data anywhere.
+        * No storage/media perms-> progress lives in app-private storage only.
+        * No microphone/camera  -> nothing is recorded.
+      The INTERNET permission exists ONLY in the debug manifest (for Flutter
+      hot-reload during development) and is never present in a release build.
+      All learning content, audio SFX, and pronunciation are bundled or use
+      the on-device TTS engine, so the app is fully functional offline.
+    -->
+
     <application
-        android:label="kabyle_duo"
+        android:label="KabyleDuo"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true"
+        android:fullBackupContent="true"
+        android:usesCleartextTraffic="false">
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -12,10 +29,6 @@
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
-            <!-- Specifies an Android theme to apply to this Activity as soon as
-                 the Android process has started. This theme is visible to the user
-                 while the Flutter UI initializes. After that, this theme continues
-                 to determine the Window background behind the Flutter UI. -->
             <meta-data
               android:name="io.flutter.embedding.android.NormalTheme"
               android:resource="@style/NormalTheme"
@@ -31,12 +44,14 @@
             android:name="flutterEmbedding"
             android:value="2" />
     </application>
-    <!-- Required to query activities that can process text, see:
-         https://developer.android.com/training/package-visibility and
-         https://developer.android.com/reference/android/content/Intent#ACTION_PROCESS_TEXT.
 
-         In particular, this is used by the Flutter engine in io.flutter.plugin.text.ProcessTextPlugin. -->
     <queries>
+        <!-- Lets flutter_tts discover on-device Text-To-Speech engines on
+             Android 11+ (package visibility). -->
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE"/>
+        </intent>
+        <!-- Used by the Flutter engine's ProcessText plugin. -->
         <intent>
             <action android:name="android.intent.action.PROCESS_TEXT"/>
             <data android:mimeType="text/plain"/>
