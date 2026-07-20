@@ -14,7 +14,7 @@
     -->
 
     <application
-        android:label="Kabylingo"
+        android:label="Choukrilingo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
         android:allowBackup="true"

@@ -1,0 +1,28 @@
+# Netlify configuration for Choukrilingo (Flutter web).
+#
+# Netlify's build servers don't ship Flutter, so the build command fetches a
+# pinned Flutter SDK, then builds the web app. Netlify serves the result from
+# build/web. Link this repo in Netlify (Add new site -> Import from Git) and it
+# deploys automatically on every push — no local machine needed.
+
+[build]
+  publish = "build/web"
+  command = """
+    if [ ! -x flutter/bin/flutter ]; then
+      git clone https://github.com/flutter/flutter.git --depth 1 -b 3.44.6 flutter;
+    fi
+    export PATH="$PATH:$(pwd)/flutter/bin"
+    flutter config --no-analytics
+    flutter pub get
+    flutter build web --release --base-href "/"
+  """
+
+[build.environment]
+  # Speeds up the Flutter tool on CI.
+  FLUTTER_SUPPRESS_ANALYTICS = "true"
+
+# Serve the single-page app for any path (PWA-friendly).
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

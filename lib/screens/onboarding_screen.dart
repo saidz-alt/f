@@ -21,21 +21,19 @@ class OnboardingScreen extends StatelessWidget {
           child: Column(
             children: [
               const Spacer(),
-              // Mascot + brand.
-              Container(
-                width: 108,
-                height: 108,
-                decoration: const BoxDecoration(
-                  color: Colors.white,
-                  shape: BoxShape.circle,
-                ),
-                child: const Center(
-                  child: Text('🦉', style: TextStyle(fontSize: 60)),
+              // App icon / mascot.
+              ClipRRect(
+                borderRadius: BorderRadius.circular(28),
+                child: Image.asset(
+                  'assets/icon/app_icon.png',
+                  width: 132,
+                  height: 132,
+                  fit: BoxFit.cover,
                 ),
               ),
               const SizedBox(height: 16),
               const Text(
-                'Kabylingo',
+                'Choukrilingo',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 40,

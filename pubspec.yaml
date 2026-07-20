@@ -24,11 +24,26 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^4.0.0
+  flutter_launcher_icons: ^0.14.1
+
+# App-icon generation (run: dart run flutter_launcher_icons). Source is the
+# custom Choukrilingo icon; produces Android mipmaps + web/favicon icons.
+flutter_launcher_icons:
+  image_path: "assets/icon/app_icon.png"
+  android: "ic_launcher"
+  min_sdk_android: 23
+  remove_alpha_ios: false
+  web:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+    background_color: "#58CC02"
+    theme_color: "#58CC02"
 
 flutter:
   uses-material-design: true
   assets:
     - assets/curriculum/curriculum.json
+    - assets/icon/app_icon.png
     - assets/audio/sfx/
     # Native-speaker Kabyle recordings drop into assets/audio/kab/ and are
     # picked up automatically by AudioService; French uses on-device TTS.

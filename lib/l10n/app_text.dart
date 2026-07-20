@@ -110,7 +110,7 @@ class AppText {
       : const ['L', 'T', 'L', 'L', 'Ǧ', 'S', 'Ḥ'];
 
   // -- Onboarding (shown before a language is chosen, so kept bilingual) --
-  String get onboardingTitle => 'Kabylingo';
+  String get onboardingTitle => 'Choukrilingo';
   String get onboardingPromptFr => 'Choisis ta langue';
   String get onboardingPromptKab => 'Fren tutlayt-ik';
 }

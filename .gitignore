@@ -45,3 +45,6 @@ app.*.map.json
 # Note: pubspec.lock IS intentionally tracked for reproducible app builds.
 *.hive
 *.hive.lock
+
+# Flutter SDK cloned by the Netlify build (never commit)
+/flutter/

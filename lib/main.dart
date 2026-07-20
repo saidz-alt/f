@@ -25,13 +25,13 @@ Future<void> main() async {
   final audio = AudioService();
   unawaited(audio.init());
 
-  runApp(KabylingoApp(curriculum: curriculum, audio: audio));
+  runApp(ChoukrilingoApp(curriculum: curriculum, audio: audio));
 }
 
-class KabylingoApp extends StatelessWidget {
+class ChoukrilingoApp extends StatelessWidget {
   final Curriculum curriculum;
   final AudioService audio;
-  const KabylingoApp({super.key, required this.curriculum, required this.audio});
+  const ChoukrilingoApp({super.key, required this.curriculum, required this.audio});
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +47,7 @@ class KabylingoApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Kabylingo',
+        title: 'Choukrilingo',
         debugShowCheckedModeBanner: false,
         theme: AppTheme.lightTheme,
         home: const AppLoader(),

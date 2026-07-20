@@ -1,4 +1,4 @@
-# Kabylingo 🟢
+# Choukrilingo 🟢
 
 A Duolingo-style, **offline-first** language-learning game for children, built
 to teach **French to Kabyle (Taqbaylit) kids** and **Kabyle to French-speaking
@@ -128,12 +128,12 @@ flutter pub get
 
 # 2. (Optional) create a release keystore for a Play-Store-signable build.
 #    Skip this and you still get an installable, debug-signed APK.
-keytool -genkey -v -keystore kabylingo-release.jks \
-  -keyalg RSA -keysize 2048 -validity 10000 -alias kabylingo
+keytool -genkey -v -keystore choukrilingo-release.jks \
+  -keyalg RSA -keysize 2048 -validity 10000 -alias choukrilingo
 #    Then create android/key.properties (git-ignored):
-#      storeFile=../kabylingo-release.jks
+#      storeFile=../choukrilingo-release.jks
 #      storePassword=<your password>
-#      keyAlias=kabylingo
+#      keyAlias=choukrilingo
 #      keyPassword=<your password>
 
 # 3. Build the release APK
