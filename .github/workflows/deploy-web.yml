@@ -1,0 +1,56 @@
+name: Deploy Kabylingo web
+
+# Builds the Flutter web app and publishes it to GitHub Pages so it can be
+# opened (and "Added to Home Screen") on any phone — no computer needed.
+on:
+  workflow_dispatch: # lets you run it by hand from the Actions tab
+  push:
+    branches:
+      - claude/repo-overview-cull8c
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Only one Pages deploy at a time.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.44.6
+          channel: stable
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      # base-href must match the Pages sub-path (https://<user>.github.io/f/).
+      - name: Build web
+        run: flutter build web --release --no-web-resources-cdn --base-href "/f/"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
